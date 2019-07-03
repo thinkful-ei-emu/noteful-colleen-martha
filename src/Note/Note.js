@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Note.css'
-import { callbackify } from 'util';
+
 
 
  export default class Note extends React.Component {

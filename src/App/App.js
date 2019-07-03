@@ -6,6 +6,8 @@ import NotePageNav from "../NotePageNav/NotePageNav";
 import NoteListMain from "../NoteListMain/NoteListMain";
 import NotePageMain from "../NotePageMain/NotePageMain";
 import NotefulContext from "../NotefulContext";
+import NoteAddForm  from '../NotefulForm/NoteAddForm';
+
 import "./App.css";
 
 class App extends Component {
@@ -21,7 +23,11 @@ class App extends Component {
       notes: newNotes
     });
   };
-  
+  addNote = note => {
+    this.setState({
+      notes: [...this.state.notes, note]
+    })
+  }
   componentDidMount() {
     fetch('http://localhost:9090/folders')
         .then(res=> res.json())
@@ -45,7 +51,7 @@ class App extends Component {
         ))}
         <Route path="/note/:noteId" component={NotePageNav} />
         <Route path="/add-folder" component={NotePageNav} />
-        <Route path="/add-note" component={NotePageNav} />
+        <Route path="/add-note" component={NoteAddForm} />
       </>
     );
   }
