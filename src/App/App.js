@@ -73,7 +73,8 @@ class App extends Component {
         value={{
           notes: this.state.notes,
           folders: this.state.folders,
-          deleteNote: this.deleteNote
+          deleteNote: this.deleteNote,
+          addNote: this.addNote
         }}
       >
         <div className="App">

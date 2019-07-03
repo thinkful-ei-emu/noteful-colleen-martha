@@ -53,14 +53,17 @@ class NoteAddForm extends React.Component {
       return res.json()
     })
     .then(data => {
+      console.log(data)
       title.value = ''
       description.value=''
+      console.log(this.context)
       this.context.addNote(data)
-      console.log(data)
-      this.props.history.goBack()
+      console.log(this.props.history)
+      this.props.history.push('/')
     })
     .catch(error => {
       this.setState({ error })
+      console.log(error)
     })
   }
   
@@ -68,7 +71,6 @@ class NoteAddForm extends React.Component {
   
     
   render(){
-    console.log(this.context.folders)
     const folderChoice = this.context.folders.map((folder, index) => 
     <><input key={index} name="folders" type="radio" value={folder.id} onChange ={this.onFolderSelect}></input>
     <label>{folder.name}</label></>)
