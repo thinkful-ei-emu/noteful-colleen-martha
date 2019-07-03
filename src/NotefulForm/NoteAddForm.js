@@ -38,7 +38,7 @@ class NoteAddForm extends React.Component {
       content: description.value,
       folderId: folders.value,
       id: cuid(),
-      modified: '2018-08-15T23:00:00.000Z'
+      modified: new Date()
     }
     fetch('http://localhost:9090/notes', {
       method: 'POST',
@@ -57,7 +57,7 @@ class NoteAddForm extends React.Component {
       description.value=''
       this.context.addNote(data)
       console.log(data)
-      this.props.history.push('/')
+      this.props.history.goBack()
     })
     .catch(error => {
       this.setState({ error })
