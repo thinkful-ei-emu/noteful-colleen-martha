@@ -5,7 +5,6 @@ import NoteListNav from "../NoteListNav/NoteListNav";
 import NotePageNav from "../NotePageNav/NotePageNav";
 import NoteListMain from "../NoteListMain/NoteListMain";
 import NotePageMain from "../NotePageMain/NotePageMain";
-import dummyStore from "../dummy-store";
 import NotefulContext from "../NotefulContext";
 import "./App.css";
 
@@ -22,10 +21,20 @@ class App extends Component {
       notes: newNotes
     });
   };
-
+  
   componentDidMount() {
-    // fake date loading from API call
-    setTimeout(() => this.setState(dummyStore), 600);
+    fetch('http://localhost:9090/folders')
+        .then(res=> res.json())
+        .then(folders => this.setState({
+            folders: folders
+        }))
+
+        fetch('http://localhost:9090/notes')
+        .then(res=> res.json())
+        .then(notes => this.setState({
+            notes: notes
+        }))
+    
   }
 
   renderNavRoutes() {
