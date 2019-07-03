@@ -8,9 +8,6 @@ export default class NotePageMain extends React.Component {
   static contextType = NotefulContext;
   render() {
     const note = findNote(this.context.notes, this.props.match.params.noteId)
-
-    console.log(this.context.notes)
-    console.log(this.props.match.params.noteId)
     if (!note) {
       return <div>Loading..</div>
     }
