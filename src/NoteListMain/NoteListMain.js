@@ -4,15 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Note from '../Note/Note'
 import CircleButton from '../CircleButton/CircleButton'
 import NotefulContext from '../NotefulContext'
-import {getNotesForFolder, findNote, findFolder} from '../notes-helpers';
+//import {getNotesForFolder, findNote, findFolder} from '../notes-helpers';
 import './NoteListMain.css'
 
 export default class NoteListMain extends React.Component{
 
   static contextType = NotefulContext
   render(){
-  
-  
 
   return (
     <section className='NoteListMain'>
