@@ -2,8 +2,6 @@ import React from 'react'
 import NotefulContext from '../NotefulContext'
 import cuid from 'cuid'
 
-
-
 class NoteAddForm extends React.Component {
   state = 
   {
